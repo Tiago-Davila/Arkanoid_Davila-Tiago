@@ -1,0 +1,348 @@
+[gd_scene format=3 uid="uid://bvxdlt16y5vlq"]
+
+[ext_resource type="Texture2D" uid="uid://dfys0s3630uih" path="res://assets/texturas/25935289112bdcbe569a0df742cfa9cc.jpg" id="1_er0x6"]
+[ext_resource type="Script" uid="uid://bf7tkmj6tsget" path="res://scenes/scripts/movimiento_script.gd" id="2_wxv24"]
+[ext_resource type="Texture2D" uid="uid://cuc0megf77b10" path="res://assets/texturas/paddle_08.png" id="2_yxsmu"]
+[ext_resource type="Script" uid="uid://cjd51nvl46ddy" path="res://scenes/scripts/pelota.gd" id="4_43sji"]
+[ext_resource type="Texture2D" uid="uid://7wnixe6wxc16" path="res://assets/texturas/image-Photoroom (3).png" id="5_84ue5"]
+[ext_resource type="Script" uid="uid://cg7fdktsoos6x" path="res://scenes/scripts/ladrillo.gd" id="6_viiol"]
+[ext_resource type="Texture2D" uid="uid://b7a284mdrpih2" path="res://assets/texturas/tileBlue_02.png" id="7_pfwph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_43sji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ka6"]
+size = Vector2(20, 598)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vip7s"]
+size = Vector2(92, 14.2725)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_viiol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfwph"]
+size = Vector2(187.7721, 86.54634)
+
+[node name="Arkanoid" type="Node2D" unique_id=533637976 groups=["pelota"]]
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=637650643]
+position = Vector2(177, 301.00003)
+scale = Vector2(0.48369563, 0.45871565)
+texture = ExtResource("1_er0x6")
+
+[node name="piso" type="StaticBody2D" parent="." unique_id=684779403]
+position = Vector2(177, 476.99997)
+rotation = -3.1415927
+scale = Vector2(19.721777, 0.71093994)
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso" unique_id=396196173]
+shape = SubResource("RectangleShape2D_43sji")
+
+[node name="techo" type="StaticBody2D" parent="." unique_id=1296983274]
+position = Vector2(200, 0)
+scale = Vector2(26.555698, 1.1220087)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="techo" unique_id=239586153]
+shape = SubResource("RectangleShape2D_43sji")
+
+[node name="pared_derecha" type="StaticBody2D" parent="." unique_id=1690839434]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared_derecha" unique_id=274824703]
+position = Vector2(365, 299)
+shape = SubResource("RectangleShape2D_18ka6")
+
+[node name="pared_izquierda" type="StaticBody2D" parent="." unique_id=2028282086]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pared_izquierda" unique_id=492041448]
+position = Vector2(-11, 299)
+shape = SubResource("RectangleShape2D_18ka6")
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1823349665]
+position = Vector2(177, 463)
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("2_wxv24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1685022315]
+position = Vector2(-1.5258789e-05, 0.13623047)
+shape = SubResource("RectangleShape2D_vip7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1819189632]
+position = Vector2(0.25, 0)
+scale = Vector2(0.14919353, 0.116666876)
+texture = ExtResource("2_yxsmu")
+
+[node name="pelota" type="RigidBody2D" parent="." unique_id=840804464 groups=["pelota"]]
+position = Vector2(177, 446)
+collision_mask = 22
+script = ExtResource("4_43sji")
+
+[node name="Sprite2D" type="Sprite2D" parent="pelota" unique_id=973864901]
+position = Vector2(-0.2604065, 0)
+scale = Vector2(0.04427084, 0.04545506)
+texture = ExtResource("5_84ue5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pelota" unique_id=1522281784]
+scale = Vector2(0.95832825, 1)
+shape = SubResource("CircleShape2D_viiol")
+
+[node name="grupo_ladrillos" type="Node2D" parent="." unique_id=1271613774 groups=["pelota"]]
+position = Vector2(-6, 0)
+
+[node name="ladrillo" type="Area2D" parent="grupo_ladrillos" unique_id=1733766347 groups=["pelota"]]
+position = Vector2(50, 50)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo" unique_id=976995323]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo" unique_id=1507604808]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo2" type="Area2D" parent="grupo_ladrillos" unique_id=231929834 groups=["pelota"]]
+position = Vector2(102, 50)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo2" unique_id=2032290795]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo2" unique_id=817964991]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo3" type="Area2D" parent="grupo_ladrillos" unique_id=677252725 groups=["pelota"]]
+position = Vector2(154, 50)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo3" unique_id=1340354511]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo3" unique_id=51163692]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo4" type="Area2D" parent="grupo_ladrillos" unique_id=1835216047 groups=["pelota"]]
+position = Vector2(206, 50)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo4" unique_id=475683388]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo4" unique_id=1264943797]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo5" type="Area2D" parent="grupo_ladrillos" unique_id=453033114 groups=["pelota"]]
+position = Vector2(258, 50)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo5" unique_id=2022739954]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo5" unique_id=2117589547]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo6" type="Area2D" parent="grupo_ladrillos" unique_id=1592097414 groups=["pelota"]]
+position = Vector2(310, 50)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo6" unique_id=1676480692]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo6" unique_id=819854255]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo7" type="Area2D" parent="grupo_ladrillos" unique_id=209734738 groups=["pelota"]]
+position = Vector2(50, 77)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo7" unique_id=1350868924]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo7" unique_id=1014315246]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo8" type="Area2D" parent="grupo_ladrillos" unique_id=143878733 groups=["pelota"]]
+position = Vector2(102, 77)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo8" unique_id=921520246]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo8" unique_id=932286440]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo9" type="Area2D" parent="grupo_ladrillos" unique_id=1314966389 groups=["pelota"]]
+position = Vector2(154, 77)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo9" unique_id=1354087910]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo9" unique_id=384498903]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo10" type="Area2D" parent="grupo_ladrillos" unique_id=1773880930 groups=["pelota"]]
+position = Vector2(206, 77)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo10" unique_id=1223144842]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo10" unique_id=791109203]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo11" type="Area2D" parent="grupo_ladrillos" unique_id=394453778 groups=["pelota"]]
+position = Vector2(258, 77)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo11" unique_id=856447928]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo11" unique_id=864933629]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo12" type="Area2D" parent="grupo_ladrillos" unique_id=1152047848 groups=["pelota"]]
+position = Vector2(310, 77)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo12" unique_id=1769485175]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo12" unique_id=647153232]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo13" type="Area2D" parent="grupo_ladrillos" unique_id=1892222185 groups=["pelota"]]
+position = Vector2(50, 105)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo13" unique_id=572697215]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo13" unique_id=676014265]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo14" type="Area2D" parent="grupo_ladrillos" unique_id=1431501187 groups=["pelota"]]
+position = Vector2(102, 105)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo14" unique_id=882293558]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo14" unique_id=1140174292]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo15" type="Area2D" parent="grupo_ladrillos" unique_id=1452888761 groups=["pelota"]]
+position = Vector2(154, 105)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo15" unique_id=173115560]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo15" unique_id=861022812]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo16" type="Area2D" parent="grupo_ladrillos" unique_id=1364389286 groups=["pelota"]]
+position = Vector2(206, 105)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo16" unique_id=481791966]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo16" unique_id=1111358214]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo17" type="Area2D" parent="grupo_ladrillos" unique_id=1022359807 groups=["pelota"]]
+position = Vector2(258, 105)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo17" unique_id=694166455]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo17" unique_id=1962715166]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[node name="ladrillo18" type="Area2D" parent="grupo_ladrillos" unique_id=745491295 groups=["pelota"]]
+position = Vector2(310, 105)
+scale = Vector2(0.26604772, 0.25508064)
+collision_layer = 4
+script = ExtResource("6_viiol")
+
+[node name="Sprite2D" type="Sprite2D" parent="grupo_ladrillos/ladrillo18" unique_id=1271803426]
+texture = ExtResource("7_pfwph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grupo_ladrillos/ladrillo18" unique_id=1228646724]
+position = Vector2(0, -1.492157)
+shape = SubResource("RectangleShape2D_pfwph")
+
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo" to="grupo_ladrillos/ladrillo" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo2" to="grupo_ladrillos/ladrillo2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo3" to="grupo_ladrillos/ladrillo3" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo4" to="grupo_ladrillos/ladrillo4" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo5" to="grupo_ladrillos/ladrillo5" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo6" to="grupo_ladrillos/ladrillo6" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo7" to="grupo_ladrillos/ladrillo7" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo8" to="grupo_ladrillos/ladrillo8" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo9" to="grupo_ladrillos/ladrillo9" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo10" to="grupo_ladrillos/ladrillo10" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo11" to="grupo_ladrillos/ladrillo11" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo12" to="grupo_ladrillos/ladrillo12" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo13" to="grupo_ladrillos/ladrillo13" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo14" to="grupo_ladrillos/ladrillo14" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo15" to="grupo_ladrillos/ladrillo15" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo16" to="grupo_ladrillos/ladrillo16" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo17" to="grupo_ladrillos/ladrillo17" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grupo_ladrillos/ladrillo18" to="grupo_ladrillos/ladrillo18" method="_on_area_2d_body_entered"]

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bvxdlt16y5vlq"]
+
+[ext_resource type="Texture2D" uid="uid://dfys0s3630uih" path="res://assets/texturas/25935289112bdcbe569a0df742cfa9cc.jpg" id="1_er0x6"]
+[ext_resource type="Script" uid="uid://cnd771h7jq4m1" path="res://scenes/player.gd" id="2_wxv24"]
+[ext_resource type="Texture2D" uid="uid://cuc0megf77b10" path="res://assets/texturas/paddle_08.png" id="2_yxsmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ka6"]
+size = Vector2(20, 598)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vip7s"]
+size = Vector2(92, 14.2725)
+
+[node name="Arkanoid" type="Node2D" unique_id=533637976]
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=637650643]
+position = Vector2(177, 301.00003)
+scale = Vector2(0.48369563, 0.45871565)
+texture = ExtResource("1_er0x6")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1690839434]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=274824703]
+position = Vector2(365, 299)
+shape = SubResource("RectangleShape2D_18ka6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2028282086]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=492041448]
+position = Vector2(-11, 299)
+shape = SubResource("RectangleShape2D_18ka6")
+
+[node name="player" type="RigidBody2D" parent="." unique_id=874111732]
+position = Vector2(177, 463)
+script = ExtResource("2_wxv24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1685022315]
+position = Vector2(-1.5258789e-05, 0.13623047)
+shape = SubResource("RectangleShape2D_vip7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1819189632]
+position = Vector2(0.25, 0)
+scale = Vector2(0.14919353, 0.116666876)
+texture = ExtResource("2_yxsmu")
