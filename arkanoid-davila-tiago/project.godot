@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Arkanoid_Davila_Tiago"
-run/main_scene="uid://bvxdlt16y5vlq"
+run/main_scene="uid://bdtno42kt3vrr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=350
+window/size/viewport_width=500
 window/size/viewport_height=600
 
 [global_group]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cvjujamdoa45c"]
+
+[ext_resource type="Texture2D" uid="uid://cbva4mi7lwvie" path="res://assets/texturas/image-Photoroom (10).png" id="1_gfyyy"]
+[ext_resource type="Script" uid="uid://ddj27c8ddh8ee" path="res://scenes/scripts/game_over.gd" id="1_is8vb"]
+
+[node name="GameOver" type="Control" unique_id=1429623927]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_is8vb")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1297262898]
+layout_mode = 0
+offset_right = 346.0
+offset_bottom = 599.0
+
+[node name="ImagePhotoroom(10)" type="Sprite2D" parent="." unique_id=2113612216]
+position = Vector2(177.00002, 225.99998)
+scale = Vector2(1.3815507, 1.2755556)
+texture = ExtResource("1_gfyyy")
+
+[node name="Timer" type="Timer" parent="." unique_id=1238077173]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
