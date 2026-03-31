@@ -1,5 +1,6 @@
 extends RigidBody2D
-var velocidad_constante = 500
+var velocidad = 550
+
 func _ready() -> void:
 	linear_velocity = Vector2(350, -350)
 	gravity_scale = 0
@@ -14,4 +15,4 @@ func _ready() -> void:
 	
 func _physics_process(delta):
 	if linear_velocity.length() != 0:
-		linear_velocity = linear_velocity.normalized() * velocidad_constante
+		linear_velocity = linear_velocity.normalized() * velocidad

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bttvtmbel6u0a" path="res://assets/texturas/2150405364.jpg" id="1_d6xxl"]
 [ext_resource type="Texture2D" uid="uid://cfnusjcawjrwx" path="res://assets/texturas/titulo .png" id="2_5l7p0"]
 [ext_resource type="Texture2D" uid="uid://c1bs8hra4m7sj" path="res://assets/texturas/image-Photoroom (11).png" id="3_bnklu"]
-[ext_resource type="Script" uid="uid://bce7ub5oxikha" path="res://scenes/texture_button.gd" id="4_bnklu"]
+[ext_resource type="Script" uid="uid://bce7ub5oxikha" path="res://scenes/scripts/texture_button.gd" id="4_bnklu"]
 
 [node name="MenuInicio" type="Control" unique_id=1225845120]
 layout_mode = 3
@@ -14,8 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="2150405364" type="Sprite2D" parent="." unique_id=955437252]
-position = Vector2(250.99998, 301.50003)
-scale = Vector2(0.50399995, 0.39800003)
+position = Vector2(250.99998, 296.50003)
+scale = Vector2(0.50399995, 0.40466672)
 texture = ExtResource("1_d6xxl")
 
 [node name="Titulo" type="Sprite2D" parent="." unique_id=656039656]

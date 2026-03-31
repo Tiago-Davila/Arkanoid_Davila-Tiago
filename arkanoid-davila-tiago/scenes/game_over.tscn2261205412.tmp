@@ -5,18 +5,6 @@
 [ext_resource type="Script" uid="uid://bce7ub5oxikha" path="res://scenes/scripts/texture_button.gd" id="4_7m3ot"]
 
 [sub_resource type="GDScript" id="GDScript_tbwuq"]
-script/source = "extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="GameOver" type="Control" unique_id=1429623927]
 layout_mode = 3

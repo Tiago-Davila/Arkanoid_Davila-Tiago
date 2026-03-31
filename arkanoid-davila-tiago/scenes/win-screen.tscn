@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://hi5csochr5op"]
+
+[ext_resource type="Texture2D" uid="uid://beq7prc6420ll" path="res://assets/texturas/image.png" id="1_y6qyh"]
+[ext_resource type="Texture2D" uid="uid://cplp6kr21y1pi" path="res://assets/texturas/boton-reinicio.png" id="2_riwyx"]
+[ext_resource type="Script" uid="uid://bce7ub5oxikha" path="res://scenes/scripts/texture_button.gd" id="3_jn2wx"]
+
+[node name="Control" type="Control" unique_id=136988532]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1804001454]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 500.0
+offset_bottom = 597.0
+
+[node name="Image" type="Sprite2D" parent="." unique_id=883879747]
+position = Vector2(259, 272.99997)
+scale = Vector2(0.96405226, 0.9447674)
+texture = ExtResource("1_y6qyh")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=843309256]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 189.0
+offset_right = 855.0
+offset_bottom = 989.0
+scale = Vector2(0.48359048, 0.3876416)
+texture_normal = ExtResource("2_riwyx")
+script = ExtResource("3_jn2wx")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

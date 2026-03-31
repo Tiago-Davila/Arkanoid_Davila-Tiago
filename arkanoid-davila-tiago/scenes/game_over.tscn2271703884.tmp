@@ -16,6 +16,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
 "
 
 [node name="GameOver" type="Control" unique_id=1429623927]
